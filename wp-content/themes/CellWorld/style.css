@@ -1,0 +1,188 @@
+/*
+ Theme Name:     Cell World
+ Theme URI:      https://www.elegantthemes.com/gallery/divi/
+ Description:    Tema para Cell World
+ Author:         David Barrera, Mateo Andrade
+ Author URI:     https://github.com/hakenprog
+ Template:       Divi
+ Version:        1.0.0
+*/
+ 
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+/**Inicio**/
+
+
+#banner_inicio .et-pb-controllers{
+    bottom: 70px;
+}
+
+
+/**Menus**/
+
+.menu-item{
+
+
+}
+
+et_pb_menu .et-menu>li {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.current_page_item{
+
+
+}
+
+
+
+
+
+/**Buttons General**/
+
+.woocommerce #content input.button.alt:after, .woocommerce #content input.button:after, .woocommerce #respond input#submit.alt:after, .woocommerce #respond input#submit:after, .woocommerce a.button.alt:after, .woocommerce a.button:after, .woocommerce button.button.alt:after, .woocommerce button.button:after, .woocommerce input.button.alt:after, .woocommerce input.button:after, .woocommerce-page #content input.button.alt:after, .woocommerce-page #content input.button:after, .woocommerce-page #respond input#submit.alt:after, .woocommerce-page #respond input#submit:after, .woocommerce-page a.button.alt:after, .woocommerce-page a.button:after, .woocommerce-page button.button.alt:after, .woocommerce-page button.button:after, .woocommerce-page input.button.alt:after, .woocommerce-page input.button:after {
+	content: none !important;
+}
+.woocommerce #content input.button.alt:hover, .woocommerce #content input.button:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page input.button:hover, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled] {
+	padding: .3em 1em !important; /* this is Divis default button padding */
+}
+
+
+
+/******Shop Divi Module Customization******/
+
+/**Add to cart**/
+
+#woo_tienda #content input.button.alt:hover, #woo_tienda #content input.button:hover, #woo_tienda #respond input#submit.alt:hover, #woo_tienda #respond input#submit:hover, #woo_tienda a.button.alt:hover, #woo_tienda a.button:hover, #woo_tienda button.button.alt:hover, #woo_tienda button.button:hover, #woo_tienda input.button.alt:hover, #woo_tienda input.button:hover, #woo_tienda-page #content input.button.alt:hover, #woo_tienda-page #content input.button:hover, #woo_tienda-page #respond input#submit.alt:hover, #woo_tienda-page #respond input#submit:hover, #woo_tienda-page a.button.alt:hover, #woo_tienda-page a.button:hover, #woo_tienda-page button.button.alt:hover, #woo_tienda-page button.button:hover, #woo_tienda-page input.button.alt:hover, #woo_tienda-page input.button:hover, #woo_tienda button.button:disabled, #woo_tienda button.button:disabled[disabled] {
+	padding:3px 12px 3px 7px!important;
+}
+
+#woo_tienda #content input.button.alt:before, #woo_tienda #content input.button:before, #woo_tienda #respond input#submit.alt:before, #woo_tienda #respond input#submit:before, #woo_tienda a.button.alt:before, #woo_tienda a.button:before, #woo_tienda button.button.alt:before, #woo_tienda button.button:before, #woo_tienda input.button.alt:before, #woo_tienda input.button:before, #woo_tienda-page #content input.button.alt:before, #woo_tienda-page #content input.button:before, #woo_tienda-page #respond input#submit.alt:before, #woo_tienda-page #respond input#submit:before, #woo_tienda-page a.button.alt:before, #woo_tienda-page a.button:before, #woo_tienda-page button.button.alt:before, #woo_tienda-page button.button:before, #woo_tienda-page input.button.alt:before, #woo_tienda-page input.button:before {
+    content: " ";
+    background: url(https://cellworld.bekento.com/wp-content/uploads/2020/10/Icono-Carrito-Compras-Blanco.png);
+    width: 22px; 
+    height: 19px;
+    opacity:1;
+    margin: 0 5px 0 0;
+    padding:0;
+    background-size: contain;
+    position: initial;
+    display: block;
+}
+
+#woo_tienda #content input.button.alt, #woo_tienda #content input.button, #woo_tienda #respond input#submit.alt, #woo_tienda #respond input#submit, #woo_tienda a.button.alt, #woo_tienda a.button, #woo_tienda button.button.alt, #woo_tienda button.button, #woo_tienda input.button.alt, #woo_tienda input.button, #woo_tienda-page #content input.button.alt, #woo_tienda-page #content input.button, #woo_tienda-page #respond input#submit.alt, #woo_tienda-page #respond input#submit, #woo_tienda-page a.button.alt, #woo_tienda-page a.button, #woo_tienda-page button.button.alt, #woo_tienda-page button.button, #woo_tienda-page input.button.alt, #woo_tienda-page input.button {
+    background: rgb(17,108,179);
+    background: linear-gradient(0deg, rgba(17,108,179,1) 0%, rgba(16, 147, 208 ,1) 100%);
+    color: white;
+    font-size: 13px;
+    width: fit-content;
+    display: flex;
+    border-radius: 5px!important;
+    padding: 3px 8px 3px 3px!important;
+    text-transform: uppercase;
+    margin: 7px auto 0 auto;
+}
+
+/**Price Tag**/
+
+#woo_tienda span.price{
+    display: block;
+    /* margin: 0 auto!important; */
+    text-align: center;
+}
+
+#woo_tienda .price:before{
+    content: "Precio:";
+    opacity: 1;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+/**Product name tag**/
+
+#woo_tienda .woocommerce-loop-product__title{
+    text-align: center;
+    font-weight: 800;
+    padding-bottom: 0;
+}
+
+/**Review stars Tag**/
+#woo_tienda .star-rating{
+    display:none;
+}
+
+
+/******Product Divi Woocommerce Customization******/
+
+
+#woo_product #content input.button.alt:hover, #woo_product #content input.button:hover, #woo_product #respond input#submit.alt:hover, #woo_product #respond input#submit:hover, #woo_product a.button.alt:hover, #woo_product a.button:hover, #woo_product button.button.alt:hover, #woo_product button.button:hover, #woo_product input.button.alt:hover, #woo_product input.button:hover, #woo_product-page #content input.button.alt:hover, #woo_product-page #content input.button:hover, #woo_product-page #respond input#submit.alt:hover, #woo_product-page #respond input#submit:hover, #woo_product-page a.button.alt:hover, #woo_product-page a.button:hover, #woo_product-page button.button.alt:hover, #woo_product-page button.button:hover, #woo_product-page input.button.alt:hover, #woo_product-page input.button:hover, #woo_product button.button:disabled, #woo_product button.button:disabled[disabled] {
+	padding:3px 12px 3px 7px!important;
+}
+
+#woo_product #content input.button.alt:before, #woo_product #content input.button:before, #woo_product #respond input#submit.alt:before, #woo_product #respond input#submit:before, #woo_product a.button.alt:before, #woo_product a.button:before, #woo_product button.button.alt:before, #woo_product button.button:before, #woo_product input.button.alt:before, #woo_product input.button:before, #woo_product-page #content input.button.alt:before, #woo_product-page #content input.button:before, #woo_product-page #respond input#submit.alt:before, #woo_product-page #respond input#submit:before, #woo_product-page a.button.alt:before, #woo_product-page a.button:before, #woo_product-page button.button.alt:before, #woo_product-page button.button:before, #woo_product-page input.button.alt:before, #woo_product-page input.button:before {
+    content: " ";
+    background: url(https://cellworld.bekento.com/wp-content/uploads/2020/10/Icono-Carrito-Compras-Blanco.png);
+    width: 22px; 
+    height: 19px;
+    opacity:1;
+    margin: 0 5px 0 0;
+    padding:0;
+    background-size: contain;
+    position: initial;
+    display: block;
+}
+
+#woo_product #content input.button.alt, #woo_product #content input.button, #woo_product #respond input#submit.alt, #woo_product #respond input#submit, #woo_product a.button.alt, #woo_product a.button, #woo_product button.button.alt, #woo_product button.button, #woo_product input.button.alt, #woo_product input.button, #woo_product-page #content input.button.alt, #woo_product-page #content input.button, #woo_product-page #respond input#submit.alt, #woo_product-page #respond input#submit, #woo_product-page a.button.alt, #woo_product-page a.button, #woo_product-page button.button.alt, #woo_product-page button.button, #woo_product-page input.button.alt, #woo_product-page input.button {
+    background: rgb(17,108,179);
+    background: linear-gradient(0deg, rgba(17,108,179,1) 0%, rgba(16, 147, 208 ,1) 100%);
+    color: white;
+    font-size: 13px;
+    width: fit-content;
+    display: flex;
+    border-radius: 5px!important;
+    padding: 3px 8px 3px 3px!important;
+    text-transform: uppercase;
+    margin: 7px auto 0 auto;
+}
+
+#woo_product button.single_add_to_cart_button{
+    display: flex!important;
+    margin: 20px 0!important;
+}
+
+
+/******Product Divi Woocommerce Customization******/
+
+#woo_init .woocommerce-loop-product__title, #woo_init .price, #woo_init .ajax_add_to_cart{
+    display: none;
+}
+
+/**Personalización producto**/
+
+.quantity:before{
+    content: 'Cantidad:';
+    opacity:1;
+    color:rgba(16, 147, 208 ,1);
+    margin-right: 10px;
+}
+
+.product_inner_block{
+    display: block;
+}
+
+
+@media (max-width: 980px){
+    
+    .product_inner_block{
+    display:flex;
+    justify-content: center;
+    }
+
+}
