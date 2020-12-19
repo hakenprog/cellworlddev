@@ -4414,7 +4414,24 @@ function et_divi_add_customizer_css() {
 			}
 		<?php } ?>
 		<?php if ( ! empty( $button_text_color_hover ) || 'rgba(255,255,255,0.2)' !== $button_bg_color_hover || 'rgba(0,0,0,0)' !== $button_border_color_hover || 3 !== $button_border_radius_hover || 0 !== $button_spacing_hover ) { ?>
-			<?php echo $css( 'body', '.et_pb_button:hover' ); ?>,
+			<?php echo esc_attr( $css( 'body', '.et_pb_bg_layout_light.et_pb_button:hover' ) ); ?>,
+			<?php echo esc_attr( $css( 'body', '.et_pb_button:hover' ) ); ?> {
+				<?php if ( ! empty( $button_text_color_hover ) ) { ?>
+					color: <?php echo esc_html( $button_text_color_hover ); ?> !important;
+				<?php } ?>
+				<?php if ( 'rgba(255,255,255,0.2)' !== $button_bg_color_hover ) { ?>
+					background-color: <?php echo esc_html( $button_bg_color_hover ); ?>;
+				<?php } ?>
+				<?php if ( 'rgba(0,0,0,0)' !== $button_border_color_hover ) { ?>
+					border-color: <?php echo esc_html( $button_border_color_hover ); ?> !important;
+				<?php } ?>
+				<?php if ( 3 !== $button_border_radius_hover ) { ?>
+					border-radius: <?php echo esc_html( $button_border_radius_hover ); ?>px;
+				<?php } ?>
+				<?php if ( 0 !== $button_spacing_hover ) { ?>
+					letter-spacing: <?php echo esc_html( $button_spacing_hover ); ?>px;
+				<?php } ?>
+			}
 			<?php echo $css( '.woocommerce', 'a.button.alt:hover' ); ?>,
 			<?php echo $css( '.woocommerce-page', 'a.button.alt:hover' ); ?>,
 			<?php echo $css( '.woocommerce', 'button.button.alt:hover' ); ?>,
@@ -6174,7 +6191,7 @@ function et_password_form() {
 		$form_output
 	);
 
-	return $output;
+	return preg_replace( '/\t+/', '', $output );
 }
 add_filter( 'the_password_form', 'et_password_form' );
 
@@ -6259,6 +6276,10 @@ function et_layout_body_class( $classes ) {
 			$classes[] = 'et_hide_nav';
 		} else {
 			$classes[] = 'et_show_nav';
+		}
+
+		if ( is_singular() && 'on' === get_post_meta( get_the_ID(), '_et_pb_show_title', true ) ) {
+			$classes[] = 'et_pb_show_title';
 		}
 
 		if ( true === et_get_option( 'hide_primary_logo', false ) ) {

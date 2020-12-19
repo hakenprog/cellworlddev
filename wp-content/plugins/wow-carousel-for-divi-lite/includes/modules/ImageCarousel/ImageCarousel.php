@@ -14,7 +14,6 @@ class WDCL_ImageCarousel extends WDCL_Builder_Module {
 	public function init() {
 
 		$this->name = esc_html__( 'Wow Image Carousel', 'wdcl-wow-divi-carousel-lite');
-        $this->icon_path = plugin_dir_path(__FILE__) . "wdcl-image-carousel.svg";
 
 		$this->settings_modal_toggles = [
 			'general' => [

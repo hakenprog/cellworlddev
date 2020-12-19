@@ -3,7 +3,7 @@
 Plugin Name: Wow Carousel for Divi Lite
 Plugin URI:  https://wowcarousel.com/
 Description: A Divi touch enabled plugin that lets you create a beautiful responsive carousel slider.
-Version:     1.0.3
+Version:     1.0.5
 Author:      Divi People
 Author URI:  https://divipeople.com/
 License:     GPL2
@@ -29,12 +29,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define('WDCL_PLUGIN_VERSION', '1.0.3' );
-define('WDCL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define('WDCL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define('WDCL_PLUGIN_ASSETS', trailingslashit( WDCL_PLUGIN_URL . 'assets' ) );
-define('WDCL_PLUGIN_FILE', __FILE__ );
-define('WDCL_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+define( 'WDCL_PLUGIN_VERSION', '1.0.5' );
+define( 'WDCL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'WDCL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'WDCL_PLUGIN_ASSETS', trailingslashit( WDCL_PLUGIN_URL . 'assets' ) );
+define( 'WDCL_PLUGIN_FILE', __FILE__ );
+define( 'WDCL_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+
+function wdcl_plugin_activation_hook(){
+	if (get_option('wdcl_activation_time') === false)
+		update_option('wdcl_activation_time', strtotime("now") );
+}
+
+wdcl_plugin_activation_hook();
 
 function wdcl_white_svg_icon() {
 	return 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTQuOTEgMTE0LjkxIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPnN2ZzwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEwLjQ4LDM1LjMzbC0zLjkxLDUuOTRhNi41OCw2LjU4LDAsMCwwLS45LDUuMSw0OS40Niw0OS40NiwwLDEsMS05NC4zMy02LjhjMC4xMS0uMjguMjItMC41NiwwLjM0LTAuODRBNDkuNDIsNDkuNDIsMCwwLDEsOTMuNDUsMjMuNTZhNy41LDcuNSwwLDAsMCwxMC42MS4zM2gwQTU3LjE5LDU3LjE5LDAsMSwwLDExMC40OCwzNS4zM1ptLTguMTIsMS40MSw1LTcuNjZhMC4yMSwwLjIxLDAsMCwwLDAtLjA2bC02LDUuNjVDMTAxLjcxLDM1LjM1LDEwMiwzNiwxMDIuMzYsMzYuNzRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDAuMDIpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTAuODMsMzguNzNoMC44NGMtMC4xMi4yOC0uMjMsMC41Ni0wLjM0LDAuODRaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDAuMDIpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTA3LjU4LDI4LjgybC0wLjE3LjI2LTUsNy42Nkw3My41OSw4MC4zOSw1OS4yOSw1Ni4xNmExLjA5LDEuMDksMCwwLDAtMS44NiwwbC0xNSwyNC4yNUwyMS4zNSw0NC43M2g2LjA2YTkuMzgsOS4zOCwwLDAsMSw4LjE4LDQuNzlMNDEuODcsNjAuNyw1MC42LDQ4LjI4YTkuNTMsOS41MywwLDAsMSwxNS42Ny4xMmw4LDExLjczLDI3LjA5LTI1LjQ2LDYtNS42NVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC4wMikiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xMDcuNTgsMjguODJsLTAuMTcuMjYtNSw3LjY2TDczLjU5LDgwLjM5LDU5LjI5LDU2LjE2YTEuMDksMS4wOSwwLDAsMC0xLjg2LDBsLTE1LDI0LjI1TDIxLjM1LDQ0LjczaDYuMDZhOS4zOCw5LjM4LDAsMCwxLDguMTgsNC43OUw0MS44Nyw2MC43LDUwLjYsNDguMjhhOS41Myw5LjUzLDAsMCwxLDE1LjY3LjEybDgsMTEuNzMsMjcuMDktMjUuNDYsNi01LjY1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwLjAyKSIvPjwvc3ZnPg==';
@@ -42,12 +49,13 @@ function wdcl_white_svg_icon() {
 
 require_once WDCL_PLUGIN_DIR . 'includes/assets-manager.php';
 require_once WDCL_PLUGIN_DIR . 'includes/admin-dashboard.php';
+require_once WDCL_PLUGIN_DIR . 'includes/notices.php';
 
-if ( ! function_exists( 'wdcl_initialize_extension' ) ):
+if ( ! function_exists( 'wdcl_initialize_extension' ) ) :
 
-function wdcl_initialize_extension() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/WowDiviCarouselLite.php';
-}
+	function wdcl_initialize_extension() {
+		require_once plugin_dir_path( __FILE__ ) . 'includes/WowDiviCarouselLite.php';
+	}
 
-add_action( 'divi_extensions_init', 'wdcl_initialize_extension' );
+	add_action( 'divi_extensions_init', 'wdcl_initialize_extension' );
 endif;

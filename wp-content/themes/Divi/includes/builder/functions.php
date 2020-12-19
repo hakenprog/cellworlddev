@@ -8,7 +8,7 @@
 
 if ( ! defined( 'ET_BUILDER_PRODUCT_VERSION' ) ) {
 	// Note, this will be updated automatically during grunt release task.
-	define( 'ET_BUILDER_PRODUCT_VERSION', '4.6.6' );
+	define( 'ET_BUILDER_PRODUCT_VERSION', '4.7.7' );
 }
 
 if ( ! defined( 'ET_BUILDER_VERSION' ) ) {
@@ -1213,6 +1213,31 @@ function et_fb_app_preferences_settings() {
 		'lv_modal_position_y'               => array(
 			'type'    => 'int',
 			'default' => 0,
+		),
+		// Re: "width/height": responsive dimensions presume portrait orientation.
+		'responsive_tablet_width'           => array(
+			'type'    => 'int',
+			'default' => 768,
+		),
+		'responsive_tablet_height'          => array(
+			'type'    => 'int',
+			'default' => 0,
+		),
+		'responsive_phone_width'            => array(
+			'type'    => 'int',
+			'default' => 400,
+		),
+		'responsive_phone_height'           => array(
+			'type'    => 'int',
+			'default' => 0,
+		),
+		'responsive_minimum_width'          => array(
+			'type'    => 'int',
+			'default' => 320,
+		),
+		'responsive_maximum_width'          => array(
+			'type'    => 'int',
+			'default' => 980,
 		),
 	);
 
@@ -3963,6 +3988,21 @@ function et_pb_metabox_settings_save_details( $post_id, $post ) {
 
 	if ( isset( $_POST['et_pb_old_content'] ) ) {
 		update_post_meta( $post_id, '_et_pb_old_content', $_POST['et_pb_old_content'] );
+
+		/**
+		 * Fires after the `_et_pb_old_content` post meta is updated.
+		 *
+		 * In case you want to over-ride `_et_pb_old_content` content, this is the hook you should use.
+		 *
+		 * @see et_builder_wc_long_description_metabox_save()
+		 *
+		 * @since 3.29
+		 *
+		 * @param int $post_id Post ID.
+		 * $param WP_Post $post The Post.
+		 * $param array $_POST  Request variables. This could be used for Nonce verification, etc.
+		 */
+		do_action( 'et_pb_old_content_updated', $post_id, $post, $_POST );
 	} else {
 		delete_post_meta( $post_id, '_et_pb_old_content' );
 	}
@@ -5307,6 +5347,8 @@ if ( ! function_exists( 'et_pb_load_global_module' ) ) {
 					'post_type' => ET_BUILDER_LAYOUT_POST_TYPE,
 				)
 			);
+
+			$query->the_post(); // Call the_post() to properly configure post data.
 
 			wp_reset_postdata();
 			if ( ! empty( $query->post ) ) {
@@ -12240,3 +12282,59 @@ if ( ! function_exists( 'et_format_parallax_bg_wrap_radius_values' ) ) :
 		return trim( implode( ' ', $radius_values ) );
 	}
 endif;
+
+if ( ! function_exists( 'et_builder_generate_css' ) ) {
+	/**
+	 * Generate CSS.
+	 *
+	 * @param array $args  Styles arg.
+	 *
+	 * @return string|void
+	 */
+	function et_builder_generate_css( $args ) {
+
+		$defaults = array(
+			'prefix' => '',
+			'suffix' => '',
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		/*
+		 * Bail early if we have no $selector elements or properties and $value.
+		 */
+		if ( ! $args['value'] || ! $args['selector'] ) {
+			return;
+		}
+
+		return sprintf( '%s { %s: %s; }', $args['selector'], $args['style'], $args['prefix'] . $args['value'] . $args['suffix'] );
+	}
+}
+
+if ( ! function_exists( 'et_builder_generate_css_style' ) ) {
+	/**
+	 * Generate CSS property.
+	 *
+	 * @param array $args Styles arg.
+	 *
+	 * @return string|void
+	 */
+	function et_builder_generate_css_style( $args ) {
+
+		$defaults = array(
+			'prefix' => '',
+			'suffix' => '',
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		/*
+		 * Bail early if we have no style and $value.
+		 */
+		if ( ! $args['value'] || ! $args['style'] ) {
+			return;
+		}
+
+		return sprintf( '%s: %s;', $args['style'], $args['prefix'] . $args['value'] . $args['suffix'] );
+	}
+}

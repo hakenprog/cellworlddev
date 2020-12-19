@@ -11,7 +11,6 @@ class WDCL_Twitter_Feed_Carousel extends WDCL_Builder_Module {
 	public function init(){
 
 		$this->vb_support = 'on';
-        $this->icon_path = plugin_dir_path(__FILE__) . "wdcl-twitter-feed.svg";
 		$this->name       = esc_html__( 'Wow Twitter Feed', 'wdcl-wow-divi-carousel-lite' );
 		$this->plural     =	esc_html__( 'Wow Twitter Feed', 'wdcl-wow-divi-carousel-lite' );
 		$this->slug       = 'wdcl_twitter_feed_carousel';

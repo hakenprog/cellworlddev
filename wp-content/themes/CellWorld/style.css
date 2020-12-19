@@ -14,31 +14,100 @@
 
 /**Inicio**/
 
-
 #banner_inicio .et-pb-controllers{
     bottom: 70px;
 }
 
+#banner_inicio h2{
+	color: #25333B!important;
+    font-size: 18px;
+    font-weight: 700;
+}
 
+
+#banner_inicio h1{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+#banner_inicio .et_pb_slide_content{
+	position: relative;
+	top: -175px;
+}
+
+@media (max-width: 1025px){
+	#banner_inicio .et_pb_slide_content{
+		position: relative;
+    	top: -128px;
+	}
+}
+
+@media (max-width: 980px){
+	#banner_inicio .et_pb_slide_content{
+		position: relative;
+    	top: -128px;
+	}
+
+	#banner_inicio h2{
+		font-size: 16px;
+	}
+	
+	#banner_inicio h1{
+		font-size: 18px;
+	}
+	
+}
+
+@media (max-width: 450px){
+	#banner_inicio .et_pb_slide_content{
+		position: relative;
+    	top: -10px;
+	}
+}
 /**Menus**/
 
-.menu-item{
+.menu_custom .menu-item{
 
-
-}
-
-et_pb_menu .et-menu>li {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
     padding-top: 10px;
-}
-
-.current_page_item{
-
+    padding-bottom: 10px;
 
 }
 
+.menu_custom .current_page_item, 
+.menu_custom  .current-menu-ancestor{
+    border-radius: 7px;
+    border: solid 1px;
+    padding-left: 20px!important;
+    padding-right:20px!important;
+}
+
+#header_menu_custom .current_page_item, #header_menu_custom .current-menu-ancestor{
+     border-color: #0074BD;
+}
+
+#header_menu_custom .current_page_item a{
+    color: #0074BD;
+}
+
+#header_menu_custom .current-menu-ancestor>a{
+	color: #0074BD!important;
+}
+
+.menu_custom a{
+    padding-bottom: 0px!important;
+    padding-top:0px!important;
+}
+
+#footer_menu_custom .current_page_item{
+    border-color: white;
+}
 
 
 
@@ -49,10 +118,39 @@ et_pb_menu .et-menu>li {
 	content: none !important;
 }
 .woocommerce #content input.button.alt:hover, .woocommerce #content input.button:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button.alt:hover, .woocommerce a.button:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page input.button:hover, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled] {
-	padding: .3em 1em !important; /* this is Divis default button padding */
+	padding: .3em 1em !important; 
+}
+
+/* this is Divis default button padding */
+
+#shop_button_custom {
+    background-color: #1192CF;
+    color: white;
+    font-size: 17px;
+    border-radius: 7px;
+
+}
+
+#whats_button_custom{
+    background-color: #42B760;
+    color: white;
+    font-size: 17px;
+    border-radius: 7px;
 }
 
 
+
+#woo_tienda .woocommerce-ordering select{
+
+    background-image: linear-gradient(#0F99D5, #116CB2);
+    color: white !important;
+    border-radius: 6px !important;
+    height: 30px !important;
+}
+
+#woo_tienda option{
+	background: #116CB2;
+}
 
 /******Shop Divi Module Customization******/
 
@@ -185,4 +283,24 @@ et_pb_menu .et-menu>li {
     justify-content: center;
     }
 
+}
+
+
+/**Search form**/
+
+.search_custom .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:before{
+    display:none;   
+}
+
+.search_custom .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit{
+    font-size: 15px;
+    border-radius: 7px;
+    background: linear-gradient(0deg, rgba(17,109,179,1) 0%, rgba(15,153,213,1) 100%);
+    color:white;
+    font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 500;
+}
+
+.search_custom  .dgwt-wcas-search-input{
+    border-radius: 5px;
 }

@@ -11,7 +11,6 @@ class WDCL_LogoCarousel extends WDCL_Builder_Module {
 	public function init() {
 
         $this->name       = esc_html__( 'Wow Logo Carousel', 'wdcl-wow-divi-carousel-lite');
-        $this->icon_path  = plugin_dir_path(__FILE__) . "wdcl-logo-carousel.svg";
         $this->slug       = 'wdcl_logo_carousel';
         $this->vb_support = 'on';
         $this->child_slug = 'wdcl_logo_carousel_child';

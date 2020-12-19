@@ -43,4 +43,4 @@ class WDCL_WowDiviCarouselLite extends DiviExtension {
 	}
 }
 
-new WDCL_WowDiviCarouselLite;
+new WDCL_WowDiviCarouselLite();
